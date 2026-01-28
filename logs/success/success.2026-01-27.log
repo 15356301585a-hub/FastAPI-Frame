@@ -1,0 +1,43 @@
+2026-01-27 19:13:23 |  INFO  | 1a297fb7-2289-44a9-bd46-1b0fe9aeb448 | GET |  \config\StartConfig:49  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:13:23 |  INFO  | 1a297fb7-2289-44a9-bd46-1b0fe9aeb448 | GET |  \config\StartConfig:51  |    127.0.0.1     | / | 接口请求头部参数信息：{"host": "127.0.0.1:8080", "connection": "keep-alive", "cache-control": "max-age=0", "sec-ch-ua": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"", "sec-ch-ua-mobile": "?0", "sec-ch-ua-platform": "\"Windows\"", "upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36", "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7", "sec-fetch-site": "none", "sec-fetch-mode": "navigate", "sec-fetch-user": "?1", "sec-fetch-dest": "document", "accept-encoding": "gzip, deflate, br, zstd", "accept-language": "zh-CN,zh;q=0.9"}
+2026-01-27 19:13:23 |  INFO  | 1a297fb7-2289-44a9-bd46-1b0fe9aeb448 | GET |  \config\StartConfig:23  |    127.0.0.1     | / | 接口返回值：{"detail":[{"type":"missing","loc":["body"],"msg":"Field required","input":null}]}
+2026-01-27 19:13:23 |  INFO  | a2de3467-b27f-418c-b7b6-a094d12465a7 | GET |  \config\StartConfig:51  |    127.0.0.1     | /favicon.ico | 接口请求头部参数信息：{"host": "127.0.0.1:8080", "connection": "keep-alive", "sec-ch-ua-platform": "\"Windows\"", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36", "sec-ch-ua": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"", "sec-ch-ua-mobile": "?0", "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8", "sec-fetch-site": "same-origin", "sec-fetch-mode": "no-cors", "sec-fetch-dest": "image", "referer": "http://127.0.0.1:8080/?a=1&b=1", "accept-encoding": "gzip, deflate, br, zstd", "accept-language": "zh-CN,zh;q=0.9"}
+2026-01-27 19:13:23 |  INFO  | a2de3467-b27f-418c-b7b6-a094d12465a7 | GET |  \config\StartConfig:23  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:14:31 |  INFO  | 6c6a044d-dc5a-42fc-bb07-28cc130cb49f | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:14:31 |  INFO  | 6c6a044d-dc5a-42fc-bb07-28cc130cb49f | GET |  \config\StartConfig:24  |    127.0.0.1     | / | 接口返回值：{"detail":[{"type":"missing","loc":["body"],"msg":"Field required","input":null}]}
+2026-01-27 19:14:31 |  INFO  | a525bb60-45e2-4de6-a2fc-b5b14e03099d | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:14:42 |  INFO  | 5d357d24-f0c7-4db6-adce-2af4c61aeb52 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:14:42 |  INFO  | 5d357d24-f0c7-4db6-adce-2af4c61aeb52 | GET |  \config\StartConfig:24  |    127.0.0.1     | / | 接口返回值：{"detail":[{"type":"missing","loc":["body"],"msg":"Field required","input":null}]}
+2026-01-27 19:14:42 |  INFO  | 272f5993-1a37-4b98-a79c-42e5d5a253b2 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:15:29 |  INFO  | d73924cb-a5fe-4afe-87e1-c2e00aa78b61 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:15:29 |  INFO  | d73924cb-a5fe-4afe-87e1-c2e00aa78b61 | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:15:29 |  INFO  | d73924cb-a5fe-4afe-87e1-c2e00aa78b61 | GET |  \config\StartConfig:24  |    127.0.0.1     | / | 接口返回值：{"code":200,"message":"请求成功","result":null}
+2026-01-27 19:15:29 |  INFO  | 6e2ac6f7-b105-4de8-9b3a-9e94728258f5 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:15:36 |  INFO  | cc75349e-b4ef-4e31-9c2b-fe6b60a1c6c6 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:15:36 |  INFO  | cc75349e-b4ef-4e31-9c2b-fe6b60a1c6c6 | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:15:36 |  INFO  | 06ded4a7-d31c-4d86-8a90-31c48b9a5dac | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:15:46 |  INFO  | 9b51e08f-7a28-4da2-81e3-05d9324936f2 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:15:46 |  INFO  | 9b51e08f-7a28-4da2-81e3-05d9324936f2 | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:15:46 |  INFO  | 03550fc2-8029-413f-89fb-153f2e034e0f | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:16:20 |  INFO  | edf071a6-f415-461e-bac7-53012a9196eb | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:16:20 |  INFO  | edf071a6-f415-461e-bac7-53012a9196eb | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:16:20 |  INFO  | edf071a6-f415-461e-bac7-53012a9196eb | GET |  \config\StartConfig:24  |    127.0.0.1     | / | 接口返回值：{"code":200,"message":"请求成功","result":null}
+2026-01-27 19:16:20 |  INFO  | 927b1e93-69a6-43eb-b6b7-c3d0dea08680 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:16:48 |  INFO  | 0c3e065c-6637-46cd-a03c-59ef5ee5e77d | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:16:48 |  INFO  | 0c3e065c-6637-46cd-a03c-59ef5ee5e77d | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:16:48 |  INFO  | dab3b482-9205-4713-ad12-e67b11a66961 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:17:20 |  INFO  | 38490e8c-7d6b-4e1c-9c4a-287c96875817 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:17:20 |  INFO  | 38490e8c-7d6b-4e1c-9c4a-287c96875817 | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:17:20 |  INFO  | e317df9c-c401-49c4-a1f5-1de60e99a8e7 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:23:25 |  INFO  | 4330d291-8935-48d9-8cb5-588748bed55a | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:23:25 |  INFO  | 4330d291-8935-48d9-8cb5-588748bed55a | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:23:25 |  INFO  | abb56773-bcc2-4faf-ae8b-3d80119efe31 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:23:41 |  INFO  | 6f31c995-b273-4807-85db-195dada15e3c | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:23:41 |  INFO  | 6f31c995-b273-4807-85db-195dada15e3c | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:23:41 |  INFO  | e45ec81e-1479-45e8-8c24-80d01cbfef3b | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:24:21 |  INFO  | 7c515d68-bc03-46e6-b8aa-f07d8e489d20 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:24:21 |  INFO  | 7c515d68-bc03-46e6-b8aa-f07d8e489d20 | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:24:21 |  INFO  | 6fdf6ea0-eb26-443d-91a7-9b7b087c176d | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
+2026-01-27 19:25:37 |  INFO  | 55710b73-6440-4bed-b545-7b636b765769 | GET |  \config\StartConfig:50  |    127.0.0.1     | / | 接口请求参数 query：{"a": "1", "b": "1"}
+2026-01-27 19:25:37 |  INFO  | 55710b73-6440-4bed-b545-7b636b765769 | GET |         \run:12          |    127.0.0.1     | / | 请求成功
+2026-01-27 19:25:37 |  INFO  | af5ba593-59df-4ecf-9e08-65e25a33c391 | GET |  \config\StartConfig:24  |    127.0.0.1     | /favicon.ico | 接口返回值：{"detail":"Not Found"}
