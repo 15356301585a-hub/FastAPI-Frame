@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+# 异步请求库
+rnet==3.0.0rc14
