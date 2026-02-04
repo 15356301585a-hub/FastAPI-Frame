@@ -96,7 +96,7 @@ class Session(object):
         future = asyncio.run_coroutine_threadsafe(self.request(url, rnet.Method.GET, **kwargs), loop)
         return future.result()
 
-    async def post(self, url, **kwargs: Unpack[SessionRequest]):
+    def post(self, url, **kwargs: Unpack[SessionRequest]):
         loop = _get_or_create_event_loop()
         future = asyncio.run_coroutine_threadsafe(self.request(url, rnet.Method.POST, **kwargs), loop)
         return future.result()
