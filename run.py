@@ -2,7 +2,6 @@ from common.session import requests
 import uvicorn
 from fastapi import Query
 
-from common.module import detail
 from common.rs import R
 from config.LoggerConfig import logger
 from config.StartConfig import CreateApp

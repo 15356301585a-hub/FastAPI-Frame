@@ -42,6 +42,79 @@ class SessionRequest(TypedDict, total=False):
     timeout: int  # 超时时间
     allow_redirects: bool  # 自动重定向 默认True
 
+class utils:
+    def handler_data(self,kws):
+        data = kws.get('data',{})
+        if data:
+            del kws['data']
+            headers = {k.lower(): v.lower() for k, v in kws.get('headers',{}).items()}
+            content_type = headers.get('content-type')
+            if content_type:
+                if 'application/x-www-form-urlencoded' in content_type:
+                    kws['body'] = data
+                elif 'application/json' in content_type:
+                    if type(data) is dict:
+                        kws['body'] = json.dumps(data,separators=(',',':'))
+                    else:
+                        kws['body'] = data
+                else:
+                    kws['body'] = data
+        return kws
+    def handler_json(self,kws):
+        json_data = kws.get('json',{})
+        if json_data:
+            del kws['json']
+            kws['body'] = json.dumps(json_data,separators=(',',':'))
+        return kws
+    def handler_params(self,kws):
+        params = kws.get('params',{})
+        if params:
+            del kws['params']
+            kws['query'] = {}
+            for k, v in params.items():
+                kws['query'][k] = str(v)
+        return kws
+    def handler_headers(self,kws):
+        headers = kws.get('headers',{})
+        headers_new = {k.lower(): v.lower() for k, v in kws.get('headers',{}).items()}
+        if kws.get('json'):
+            if 'application/json' not in headers_new['content-type']:
+                headers['content-type'] = 'application/json'
+            kws['headers'] = headers
+        if not headers_new.get('accept'):
+            kws['headers']['Accept'] = '*/*'
+        if not headers_new.get('accept-encoding'):
+            kws['headers']['Accept-Encoding'] = 'gzip, deflate, br'
+        return kws
+    def handler_cookie(self,kws):
+        cookies = kws.get('cookies',{})
+        headers = kws.get('headers',{})
+        if cookies:
+            cookiesStr = ""
+            for key, value in cookies.items():
+                cookiesStr += f"{key}={value};"
+            headers["Cookie"] = cookiesStr
+            kws['headers'] = headers
+        return kws
+    def handler_proxy(self,kws):
+        proxy = kws.get('proxy', '')
+        if proxy:
+            if 'http://' not in proxy:
+                proxy = 'http://' + proxy
+            kws['proxy'] = Proxy.all(url=proxy)
+        return kws
+
+    def handler_kwargs(self,kws):
+        if not kws.get('timeout'):
+            kws['timeout'] = 30
+        if kws.get('allow_redirects') is None:
+            kws['allow_redirects'] = True
+        kws = self.handler_data(kws)
+        kws = self.handler_json(kws)
+        kws = self.handler_params(kws)
+        kws = self.handler_headers(kws)
+        kws = self.handler_cookie(kws)
+        return self.handler_proxy(kws)
 
 class Response:
     def __init__(self, response: rnet.Response, url: str):
@@ -84,11 +157,12 @@ class Response:
 
 class Session(object):
     def __init__(self, **kwargs: SessionInitKwargs):
+        self.utils = utils()
         disguise = EmulationOption(emulation=kwargs.get("emulation", Emulation.Chrome142),
                                    emulation_os=kwargs.get("emulation_os", EmulationOS.Android),
                                    skip_headers=kwargs.get("skip_headers", True),
                                    skip_http2=kwargs.get("skip_http2", True))
-        self.session = Client(emulation=disguise, timeout=kwargs.get('timeout', 30),
+        self.session = Client(emulation=disguise, timeout=kwargs.get('timeout', 30),http1_only=kwargs.get('http1',True),
                               verify=kwargs.get('verify_ssl', False))
 
     def get(self, url, **kwargs: Unpack[SessionRequest]):
@@ -101,50 +175,16 @@ class Session(object):
         future = asyncio.run_coroutine_threadsafe(self.request(url, rnet.Method.POST, **kwargs), loop)
         return future.result()
 
+    async def async_get(self, url, **kwargs: Unpack[SessionRequest]):
+        return await self.request(url, rnet.Method.GET, **kwargs)
+
+    async def async_post(self, url, **kwargs: Unpack[SessionRequest]):
+        return await self.request(url, rnet.Method.POST, **kwargs)
+
     async def request(self, url, method, **kwargs):
-        kws = {
-            "timeout": kwargs.get("timeout", 30),
-            "allow_redirects": kwargs.get("allow_redirects", True),
-            "query": kwargs.get("params", {}),
-            "json": kwargs.get("json", None),
-        }
-        if kws.get('query'):
-            for k, v in kws.get('query').items():
-                if type(v) is not str:
-                    kws['query'][k] = str(v)
-
-        cookies = kwargs.get("cookies", {})
-        headers = kwargs.get("headers", {})
-        data = kwargs.get('data', {})
-        if cookies:
-            cookiesStr = ""
-            for key, value in cookies.items():
-                cookiesStr += f"{key}={value};"
-            headers["Cookie"] = cookiesStr
-
-        headerDict = {}
-        for header, value in headers.items():
-            headerDict[header.lower()] = value
-
-        if 'application/x-www-form-urlencoded' in headerDict.get('content-type',''):
-            kws['form'] = data
-        elif 'application/json' in headerDict.get('content-type',''):
-            if type(data) == str:
-                kws['body'] = data
-            elif type(data) == dict:
-                if kws['json'] is None:
-                    kws['json'] = data
-        else:
-            kws['body'] = data
-
-        proxy = kwargs.get('proxy', '')
-        if proxy:
-            kws['proxy'] = Proxy.all(url=proxy)
-
-        kws['headers'] = headers
-        resInfo = await self.session.request(method, url, **kws)
-
-        return Response(resInfo, url)
+        kws = self.utils.handler_kwargs(kwargs)
+        resp = await self.session.request(method, url, **kws)
+        return Response(resp, url)
 
 
 requests = Session()
