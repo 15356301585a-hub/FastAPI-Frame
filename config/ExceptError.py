@@ -2,7 +2,7 @@ import inspect
 import traceback
 from fastapi import Request, FastAPI
 from starlette.responses import JSONResponse
-from common.rs import R
+from common.R import R
 from config.LoggerConfig import logger, tools
 
 

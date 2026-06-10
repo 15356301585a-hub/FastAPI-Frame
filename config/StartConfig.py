@@ -7,7 +7,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 
 from common.Context import context
-from common.rs import R
+from common.R import R
 from config.ConfigData import apiConfig
 from config.ExceptError import Exception_Handler
 from config.LoggerConfig import logger

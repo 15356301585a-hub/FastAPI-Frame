@@ -80,11 +80,11 @@ class utils:
         if kws.get('json'):
             if 'application/json' not in headers_new['content-type']:
                 headers['content-type'] = 'application/json'
-            kws['headers'] = headers
         if not headers_new.get('accept'):
-            kws['headers']['Accept'] = '*/*'
+            headers['Accept'] = '*/*'
         if not headers_new.get('accept-encoding'):
-            kws['headers']['Accept-Encoding'] = 'gzip, deflate, br'
+            headers['Accept-Encoding'] = 'gzip, deflate, br'
+        kws['headers'] = headers
         return kws
     def handler_cookie(self,kws):
         cookies = kws.get('cookies',{})
